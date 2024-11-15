@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Lab-3</title>
+	<script src="script.js" defer></script>
+	<style>
+		.item {
+			display: flex;
+			flex-direction: column;
+			border: 1px solid black;
+			border-radius: 5px;
+			padding: 5px;
+		}
+
+		.options {
+			display: flex;
+			flex-direction: row;
+			gap: 5px;
+			margin-bottom: 5px;
+		}
+	</style>
+</head>
+
+<body>
+<div class="options">
+	<div class="item">
+		<label for="x0">x0</label>
+		<div>
+			<input type="number" name="x0" value="0" id="x0">
+		</div>
+
+		<label for="y0">y0</label>
+		<div>
+			<input type="number" name="y0" value="0" id="y0">
+		</div>
+	</div>
+	<div class="item">
+		<label for="scale-slider">Масштаб</label>
+		<div>
+			<input type="range" min="10" max="100" id="scale-slider">
+			<span id="range-value">50</span>
+		</div>
+	</div>
+	<fieldset class="item">
+		<legend>Алгоритм</legend>
+
+		<div>
+			<input type="radio" id="step" name="algo" value="step" checked onclick="updateAlgo(this)" />
+			<label for="step">Пошаговый</label>
+		</div>
+
+		<div>
+			<input type="radio" id="bresenham" name="algo" value="bresenham" onclick="updateAlgo(this)" />
+			<label for="bresenham">Брезенхема</label>
+		</div>
+
+		<div>
+			<input type="radio" id="dda" name="algo" value="dda" onclick="updateAlgo(this)" />
+			<label for="dda">ЦДА</label>
+		</div>
+
+		<div>
+			<input type="radio" id="circle" name="algo" value="circle" onclick="updateAlgo(this)" />
+			<label for="circle">Окружность</label>
+		</div>
+	</fieldset>
+</div>
+
+<canvas id="canvas" width="500" height="500"></canvas>
+
+<div id="timer" class="item">
+	<label for="timer">Execution Time:</label>
+	<span id="execution-time">0 ms</span>
+</div>
+</body>
+
+</html>
